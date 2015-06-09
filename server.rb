@@ -24,7 +24,6 @@ class MyServer < Sinatra::Base
     voice = params[:voice]
     text = params[:text]
     system "say -v '#{voice}' '#{text}'"
-    binding.pry
   end
 
 end

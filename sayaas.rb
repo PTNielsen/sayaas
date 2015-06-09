@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'JSON'
 require 'ip_address'
 
 class SaySomethingAPI
@@ -7,7 +6,7 @@ class SaySomethingAPI
   message = "I can talk."
 
   include HTTParty
-  base_uri '#{ip_address}http://localhost:4567'
+  base_uri '10.1.10.66:4567'
 
   def message1 voice = "Alfred", text = "#{message}"
     SaySomethingAPI.get( "/message1/#{voice}/#{text}")
