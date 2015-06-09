@@ -20,7 +20,7 @@ class MyServer < Sinatra::Base
     system "say -v '#{voice}' '#{text}'"
   end
 
-  get "/message3/:voice/:text" do
+  get "/message3" do
     voice = params[:voice]
     text = params[:text]
     system "say -v '#{voice}' '#{text}'"
