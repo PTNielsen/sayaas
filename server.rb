@@ -7,24 +7,13 @@ class MyServer < Sinatra::Base
 
   set :bind, "0.0.0.0"
 
-  get "/message1" do
+  get "/speak" do
     voice = params[:voice]
     text = params[:text]
-    system "say -v '#{voice}' '#{text}'"
-  end
-
-  get "/message2" do
-    voice = params[:voice]
-    text = params[:text]
-    system "say -v '#{voice}' '#{text}'"
-  end
-
-  get "/message3" do
-    voice = params[:voice]
-    text = params[:text]
+    # binding.pry
     system "say -v '#{voice}' '#{text}'"
   end
 
 end
-  
+
 MyServer.run!

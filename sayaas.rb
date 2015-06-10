@@ -1,23 +1,17 @@
 require 'sinatra'
-require 'ip_address'
+require 'httparty'
 
 class SaySomethingAPI
-
-  message = "I can talk."
 
   include HTTParty
   base_uri '10.1.10.66:4567'
 
-  def message1 voice = "Alfred", text = "#{message}"
-    SaySomethingAPI.get( "/message1/#{voice}/#{text}")
-  end
+  message = "Add a voice parameter for a different voice and a text parameter if you'd like for me to say something else."
 
-  def message2 voice = "Trinoid", text = "#{message}"
-    SaySomethingAPI.get( "/message2/#{voice}/#{text}" )
-  end
-
-  def message3 voice = "Good News", text = "#{message}"
-    SaySomethingAPI.get( "/message3/#{voice}/#{text}" )
+  def speak voice=nil, text=nil
+    voice ||= Alfred
+    text ||= message
+    SaySomethingAPI.get( "/speak", query: { voice: voice, text: text } )
   end
 
 end
